@@ -1,7 +1,5 @@
 import requests
 import os
-from pprint import pprint
-import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,7 +20,7 @@ def nasa_photos(api_key,name,amount):
 		name= name+str(i)
 		name = name+get_expansion(path)
 		content= requests.get(path)
-		fname = 'Nassa/{0}'.format(name)
+		fname = 'images/{0}'.format(name)
 		with open(fname, 'wb') as file:
 			file.write(content.content)
 		fname=""

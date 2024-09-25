@@ -1,7 +1,5 @@
 import requests
 import os
-from pprint import pprint
-import datetime
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -1,6 +1,5 @@
 import requests
 import os
-from pprint import pprint
 import datetime
 from dotenv import load_dotenv
 
@@ -28,7 +27,7 @@ def EPIC(api_key):
 		part = str(d.year) + '/'+ f + '/'+ g +'/png/'+ c +'.png'+'?api_key={0}'.format(api_key)
 		h = 'https://api.nasa.gov/EPIC/archive/natural/{0}'.format(part)
 		content= requests.get(h)
-		fname = 'Epic/Nasa{0}.png'.format(num)
+		fname = 'images/Nasa{0}.png'.format(num)
 		with open(fname, 'wb') as file:
 			file.write(content.content)
 		fname=""
