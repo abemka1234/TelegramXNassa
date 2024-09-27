@@ -18,7 +18,7 @@ UPL_FRQ = '1'(Your Value)
 5. If you need to sent pictures move them to images.
 6.Final step. Type in Terminal of your system:
 ```
-pip install requirements.txt
+py -m pip install -r requirements.txt
 ```  
 # Launching
 1.Use Terminal of your system and type:
