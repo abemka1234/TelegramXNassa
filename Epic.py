@@ -13,16 +13,16 @@ def EPIC(api_key):
 		'api_key': api_key,
 	}
 	response = requests.get('https://api.nasa.gov/EPIC/api/natural', params=params)
-	if response:
-		for num,epic_image in enumerate(response.json()):
-			date,time = epic_image["date"].split(" ")
-			picture = epic_image
-			year,month,day = date.split("-")
-			link = "https://api.nasa.gov/Epic/archive/natural/{0}/{1}/{2}/png/{3}.png".format(year,month,day,picture)
-			content = requests.get(link,params=params)
-			fname = "images/Nasa{0}.png".format(num)
-			with open(fname,"wb") as file:
-				file.write(content.content)
+	response.raise_for_status()
+	for num,epic_image in enumerate(response.json()):
+		date,time = epic_image["date"].split(" ")
+		picture = epic_image
+		year,month,day = date.split("-")
+		link = "https://api.nasa.gov/Epic/archive/natural/{0}/{1}/{2}/png/{3}.png".format(year,month,day,picture)
+		content = requests.get(link,params=params)
+		fname = "images/Nasa{0}.png".format(num)
+		with open(fname,"wb") as file:
+			file.write(content.content)
 
 
 if __name__ == "__main__":
