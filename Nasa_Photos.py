@@ -1,33 +1,36 @@
 import requests
 import os
 from dotenv import load_dotenv
-
-load_dotenv()
-API_KEY = os.getenv("API_KEY")
-def nasa_photos(api_key,name,amount):
-	params = {
-		'api_key': api_key,
-		'count': amount,
-	}
-	response = requests.get('https://api.nasa.gov/planetary/apod', params=params)
-	answer = response.json()
-	prname = name
-	# pprint(answer)
-	i=0
-	for photo in answer:
-		name=prname
-		path = photo['hdurl']
-		name= name+str(i)
-		name = name+get_expansion(path)
-		content= requests.get(path)
-		fname = 'images/{0}'.format(name)
-		with open(fname, 'wb') as file:
-			file.write(content.content)
-		fname=""
-		i+=1
+from tools import download_picture
 
 
 def get_expansion(filename):
 	pathparts=os.path.splitext(filename)
 	return pathparts[1]
-nasa_photos(API_KEY,'Nassa',1)
+
+
+def nasa_photos(api_key,folder_name,amount):
+	params = {
+		'api_key': api_key,
+		'count': amount,
+	}
+	response = requests.get('https://api.nasa.gov/planetary/apod', params=params)
+	response.raise_for_status()
+	answer = response.json()
+	for num,photo in enumerate(answer):
+		path = photo['hdurl']
+		print(path)
+		file_name = "Nassa{0}{1}".format(num,get_expansion(path))
+		download_picture(path,file_name,"Pictures")
+
+
+def main():
+	load_dotenv()
+	apod_api_key = os.getenv("APOD_API_KEY")
+	amount = os.getenv("APOD_PICTURES_AMOUNT")
+	path = os.getenv("FOLDER_NAME")
+	nasa_photos(apod_api_key,'Nassa',amount,path)
+
+	
+if __name__ == "__main__":
+	main()
