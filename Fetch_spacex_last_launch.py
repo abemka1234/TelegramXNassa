@@ -9,8 +9,9 @@ def fetch_spacex_last_launch(launch_id):
     links = answer["links"]["flickr"]["original"]
     for num,link in enumerate(links):
         picture_name = "SpaceX{0}.jpg".format(num)
-        picture_content = requests.get(link)
-        
+        # picture_content = requests.get(link)
+        # with open(picture_name, 'wb') as file:
+        #     file.write(content.content)
     
 def main():
     launch_id = os.getenv("ID")
