@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import time
 if __name__ == "__main__":
 	main()
+
+	
 def main():
 	load_dotenv()
 	upload_frequency= os.getenv("UPL_FRQ")
