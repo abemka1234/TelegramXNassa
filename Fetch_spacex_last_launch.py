@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from tools import download_picture
 
 
-def fetch_spacex_last_launch(launch_id='latest',folder_name):
+def fetch_spacex_last_launch(folder_name,launch_id='5eb87d42ffd86e000604b384'):
     url = 'https://api.spacexdata.com/v5/launches/{0}'.format(launch_id)
     response = requests.get(url)
     response.raise_for_status()
@@ -17,9 +17,9 @@ def fetch_spacex_last_launch(launch_id='latest',folder_name):
 
 def main():
     load_dotenv()
-    launch_id = os.getenv("SPACEX_ID")
     folder_name = os.getenv("FOLDER_NAME")
-    fetch_spacex_last_launch(launch_id,folder_name)
+    launch_id = os.getenv("SPACEX_ID")
+    fetch_spacex_last_launch(folder_name,launch_id)
 	
 
 if __name__ == "__main__" :

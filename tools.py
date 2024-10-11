@@ -1,6 +1,7 @@
 import requests
 import os
 
+
 def download_picture(link,name,folder_name,api_key = ""):
     params = {
 		'api_key': api_key,
