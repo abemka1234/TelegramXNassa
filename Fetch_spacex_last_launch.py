@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from tools import download_picture
 
 
-def fetch_spacex_last_launch(launch_id,folder_name):
+def fetch_spacex_last_launch(launch_id='latest',folder_name):
     url = 'https://api.spacexdata.com/v5/launches/{0}'.format(launch_id)
     response = requests.get(url)
     response.raise_for_status()
