@@ -4,12 +4,12 @@ from dotenv import load_dotenv
 from tools import download_picture
 
 
-def get_expansion(filename):
+def get_extension(filename):
 	pathparts=os.path.splitext(filename)
 	return pathparts[1]
 
 
-def nasa_photos(api_key,folder_name,amount):
+def get_nassa_photos(api_key,folder_name,amount):
 	params = {
 		'api_key': api_key,
 		'count': amount,
@@ -20,8 +20,8 @@ def nasa_photos(api_key,folder_name,amount):
 	for num,photo in enumerate(answer):
 		path = photo['hdurl']
 		print(path)
-		file_name = "Nassa{0}{1}".format(num,get_expansion(path))
-		download_picture(path,file_name,"Pictures")
+		file_name = "Nassa{0}{1}".format(num,get_extension(path))
+		download_picture(path,file_name,folder_name)
 
 
 def main():
@@ -29,7 +29,7 @@ def main():
 	apod_api_key = os.getenv("APOD_API_KEY")
 	amount = os.getenv("APOD_PICTURES_AMOUNT")
 	path = os.getenv("FOLDER_NAME")
-	nasa_photos(apod_api_key,'Nassa',amount,path)
+	get_nassa_photos(apod_api_key,'Nassa',amount,path)
 
 	
 if __name__ == "__main__":
