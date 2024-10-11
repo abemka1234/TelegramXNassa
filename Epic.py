@@ -14,7 +14,6 @@ def get_epic_photos(api_key,folder_name):
 		date,time = epic_image["date"].split(" ")
 		picture_name = epic_image["image"]
 		year,month,day = date.split("-")
-		#print(epic_image)
 		link = "https://api.nasa.gov/EPIC/archive/natural/{0}/{1}/{2}/png/{3}.png".format(year,month,day,picture_name)
 		fname = "Nasa{0}.png".format(num)
 		download_picture(link,fname,folder_name,api_key)
