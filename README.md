@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 Чтобы пользоваться ботом,вам нужно:
 
--Апи токен бота в телеграмме(Создать бота можно через BotFather) (BotFather)[https://t.me/BotFather]
+-Апи токен бота в телеграмме(Создать бота можно через BotFather) [BotFather](https://t.me/BotFather)
 
 -Айди чата в телеграмме
 
