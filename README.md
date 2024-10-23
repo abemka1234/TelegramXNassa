@@ -37,7 +37,7 @@ cd Директория_с_проектом
 
 Запустите Nassa_Photos.py для скачивание эпичных фотографий земли для будущей отправки.
 ```
-python Nassa_Photos.py
+python Nasa_Photos.py
 ```
 
 Запустите Epic.py для скачивание эпичных фотографий земли для будущей отправки.
@@ -45,7 +45,16 @@ python Nassa_Photos.py
 python Epic.py
 ```
 
-Запустите TelegramXNassa.py для отправки файлов из папки с фото.
+Запустите Fetch_spacex_last_launch.py для скачивание эпичных фотографий земли для будущей отправки.
+```
+python Fetch_spacex_last_launch.py
+```
+
+Запустите TelegramXNassa.py для отправки файлов из папки с фото в вашу группу или канал в телеграме.
+```
+python TelegramXNassa.py
+```
+
 ### Цель проекта
 
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/).
