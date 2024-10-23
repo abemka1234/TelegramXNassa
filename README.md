@@ -22,7 +22,7 @@ pip install -r requirements.txt
 SPACEX_ID =  'ID запуска SPACEX(тоже в кавычках). Если нету то оставить строку пустой'
 TELEGRAM_CHAT_ID = "ID чата в телеграмме"
 TELEGRAM_API = 'API код твоего бота в телеграмме'
-NASSA_API_KEY = 'API ключ NASSA'
+APOD_API_KEY = 'API ключ NASSA для APOD и EPIC'
 UPL_FRQ = 'Частота загрузки новых фото'
 FOLDER_NAME = 'Имя папки'
 EPIC_PICTURES_AMOUNT = 'Количество Эпичных фоток земли'

@@ -21,7 +21,7 @@ def get_epic_photos(api_key,folder_name):
 
 def main():
 	load_dotenv()
-	api_key = os.getenv("NASSA_API_KEY")
+	api_key = os.getenv("APOD_API_KEY")
 	folder_name = os.getenv("FOLDER_NAME")
 	get_epic_photos(api_key,folder_name)
 
