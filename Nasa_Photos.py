@@ -19,8 +19,7 @@ def get_nassa_photos(api_key,folder_name,amount):
 	answer = response.json()
 	for num,photo in enumerate(answer):
 		path = photo['hdurl']
-		print(path)
-		file_name = "Nassa{0}{1}".format(num,get_extension(path))
+		file_name = "APOD{0}{1}".format(num,get_extension(path))
 		download_picture(path,file_name,folder_name)
 
 
@@ -29,7 +28,7 @@ def main():
 	apod_api_key = os.getenv("APOD_API_KEY")
 	amount = os.getenv("APOD_PICTURES_AMOUNT")
 	path = os.getenv("FOLDER_NAME")
-	get_nassa_photos(apod_api_key,'Nassa',amount,path)
+	get_nassa_photos(apod_api_key,path,amount)
 
 	
 if __name__ == "__main__":

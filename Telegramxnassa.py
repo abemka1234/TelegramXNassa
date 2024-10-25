@@ -6,12 +6,12 @@ import time
 
 
 def main():
+	load_dotenv()
+	upload_frequency= os.getenv("UPL_FRQ")
+	telegram_id = int(os.getenv("TELEGRAM_CHAT_ID"))
+	telegram_api = os.getenv("TELEGRAM_API")
+	folder_name = os.getenv("FOLDER_NAME")
 	while True:
-		load_dotenv()
-		upload_frequency= os.getenv("UPL_FRQ")
-		telegram_id = int(os.getenv("TELEGRAM_CHAT_ID"))
-		telegram_api = os.getenv("TELEGRAM_API")
-		folder_name = os.getenv("FOLDER_NAME")
 		bot = Bot(token=telegram_api)
 		for root, dirs, files in os.walk(folder_name):
 			random.shuffle(files)
